@@ -1,11 +1,11 @@
 function cacheFunction(cb) {
   const cache = {};
   return (arg) => {
-    if (cache[arg]) {
+    if (arg in cache) {
       return cache[arg];
     }
     cache[arg] = cb(arg);
-    return cb(arg);
+    return cache[arg];
   };
 }
 
